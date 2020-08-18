@@ -59,6 +59,9 @@ public class CatalogueServiceTest {
 
         keys = Arrays.asList("001", "001", "001" , "001", "001");
         Assert.assertEquals(500d, catalogueService.getPriceForSelectedItems(keys),500);
+
+        keys = Arrays.asList("001a", "001a", "001a" , "001a", "001a");
+        Assert.assertEquals(0d, catalogueService.getPriceForSelectedItems(keys),0);
     }
 
 }
