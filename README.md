@@ -36,4 +36,4 @@ spring boot catalogue project
  
  ## Swagger URL
  Incase you are running the application in localhost
- http://localhost:8080/swagger-ui/index.html
+http://localhost:8080/swagger-ui/index.html?configUrl=/api-docs/swagger-config
