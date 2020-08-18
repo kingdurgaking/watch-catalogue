@@ -1,0 +1,39 @@
+[
+  {
+    "_class": "com.maha.catalogue.entity.WatchCatalogue",
+    "watchName": "Rolex",
+    "businessKey":"001",
+    "unitPrice": 100,
+    "minDiscount": 3,
+    "discountValue" : 200 ,
+    "id": 1
+  },
+  {
+    "_class": "com.maha.catalogue.entity.WatchCatalogue",
+    "watchName": "Michael Kors",
+    "businessKey":"002",
+    "unitPrice": 80,
+    "minDiscount": 2,
+    "discountValue" : 120 ,
+    "id": 2
+  },
+  {
+    "_class": "com.maha.catalogue.entity.WatchCatalogue",
+    "watchName": "Swatch",
+    "businessKey":"003",
+    "unitPrice": 50,
+    "minDiscount": 0,
+    "discountValue" : 0 ,
+    "id": 3
+  },
+  {
+    "_class": "com.maha.catalogue.entity.WatchCatalogue",
+    "watchName": "Casio",
+    "businessKey":"004",
+    "unitPrice": 30,
+    "minDiscount": 2,
+    "discountValue" : 0 ,
+    "id": 4
+  }
+
+]
