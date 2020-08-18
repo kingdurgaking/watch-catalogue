@@ -34,4 +34,6 @@ spring boot catalogue project
  
  run command "mvn exec:java"
  
- 
+ ## Swagger URL
+ Incase you are running the application in localhost
+ http://localhost:8080/swagger-ui/index.html
