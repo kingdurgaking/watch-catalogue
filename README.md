@@ -15,7 +15,7 @@ spring boot catalogue project
  - set PATH in windows
  - export PATH in unix
  
- ###Other Application parameters
+ ### Other Application parameters
   under resource folder we have watches.json, 
   where you can modify the data.
    
