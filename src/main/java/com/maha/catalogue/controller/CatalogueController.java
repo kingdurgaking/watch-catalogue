@@ -5,6 +5,7 @@ import com.maha.catalogue.dto.GenericErrorResponse;
 import com.maha.catalogue.entity.WatchCatalogue;
 import com.maha.catalogue.service.CatalogueService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -45,9 +46,25 @@ public class CatalogueController {
             return ResponseEntity.status(HttpStatus.OK).body(catalogue);
     }
 
-    @Operation(summary = "check out the price" , description = " Check out the price of the selection")
+    @Operation(summary = "get product by key " , description = " helps in geting the product by business key")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "406" , description = "Invalid input or no matching of catalogues",
+            @ApiResponse(responseCode = "404" , description = "No Product catalogue found",
+                    content = @Content( mediaType = "application/json" , schema=@Schema(implementation = GenericErrorResponse.class))),
+            @ApiResponse(responseCode = "200" , description = "Return product catalogue",
+                    content = @Content( mediaType = "application/json" , array=@ArraySchema(schema = @Schema(implementation = WatchCatalogue.class ) )))
+    })
+    @RequestMapping(method = RequestMethod.GET,produces = {"application/json"} , value = "/products")
+    public ResponseEntity getAllCatalogues(){
+        List<WatchCatalogue> catalogue = catalogueService.getAll();
+        if(catalogue == null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new GenericErrorResponse("ERR1002", "No Product found"));
+        }else
+            return ResponseEntity.status(HttpStatus.OK).body(catalogue);
+    }
+
+    @Operation(summary = "List all catalogues" , description = " List all catalogues")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "404" , description = "No Product catalogue found",
                     content = @Content( mediaType = "application/json" , schema=@Schema(implementation = GenericErrorResponse.class))),
             @ApiResponse(responseCode = "200" , description = "price",
                     content = @Content(mediaType = "application/json" , schema=@Schema(implementation = CheckoutResponse.class)))
